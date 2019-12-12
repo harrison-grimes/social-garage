@@ -1,8 +1,8 @@
 import { handleResponse } from './util';
 
-export async function getCats() {
+export async function getCars() {
   try {
-    const url = `https://wta-cats.herokuapp.com/cat`;
+    const url = `https://socialgarage.herokuapp.com/car`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -11,14 +11,14 @@ export async function getCats() {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     });
-    const cats = await handleResponse(response);
-    return cats;
+    const cars = await handleResponse(response);
+    return cars;
   } catch (err) {
     throw err;
   }
 }
 
-export async function deleteCat(id) {
+export async function deleteCar(id) {
   try {
     const url = `https://wta-cats.herokuapp.com/cat/${id}`;
     const response = await fetch(url, {
@@ -35,9 +35,9 @@ export async function deleteCat(id) {
   }
 }
 
-export async function createCat(cat) {
+export async function createCar(car) {
   try {
-    const url = `https://wta-cats.herokuapp.com/cat`;
+    const url = `https://socialgarage.herokuapp.com/car`;
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -45,18 +45,18 @@ export async function createCat(cat) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`
       },
-      body: JSON.stringify(cat)
+      body: JSON.stringify(car)
     });
-    const newCat = await handleResponse(response);
-    return newCat;
+    const newCar = await handleResponse(response);
+    return newCar;
   } catch (err) {
     throw err;
   }
 }
 
-export async function editCat(cat, id) {
+export async function editCat(car, id) {
   try {
-    const url = `https://wta-cats.herokuapp.com/cat/${id}`;
+    const url = `https://socialgarage.herokuapp.com/car/${id}`;
     const response = await fetch(url, {
       method: 'PUT',
       headers: {
@@ -64,11 +64,11 @@ export async function editCat(cat, id) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`
       },
-      body: JSON.stringify(cat)
+      body: JSON.stringify(car)
     });
     console.log(response);
     const editedCat = await handleResponse(response);
-    return editedCat;
+    return editedCar;
   } catch (err) {
     throw err;
   }

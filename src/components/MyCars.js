@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getCats } from '../store/actions';
+import { getCars } from '../store/actions';
 
-class MyCats extends Component {
+class MyCars extends Component {
   render() {
     if (!this.props.isLoggedIn) {
       return <Redirect to="/login" />;
-    } else if (this.props.cats) {
+    } else if (this.props.cars) {
       return (
         <div>
-          {this.props.cats.map(cat => (
-            <div key={cat._id}>{cat.name}</div>
+          {this.props.cars.map(car => (
+            <div key={car._id}>{car.name}</div>
           ))}
         </div>
       );
     } else {
-      return <div>Loading Cats...</div>;
+      return <div className="loading">Loading Cats...</div>;
     }
   }
 }

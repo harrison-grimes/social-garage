@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getCats, deleteCat, createCat } from '../store/actions';
+import { getCars, deleteCar, createCar } from '../store/actions';
 
-import Cat from './Cat';
-import CreateCat from './NewCat';
+import Car from './Cat';
+import CreateCar from './NewCar';
 
 class Home extends Component {
   state = {
@@ -15,7 +15,7 @@ class Home extends Component {
   edit = (id) => this.setState({edit: id})
 
   componentDidMount() {
-    this.props.getCats();
+    this.props.getCars();
   }
 
   render() {
@@ -23,23 +23,23 @@ class Home extends Component {
       return <Redirect to="/login" />;
     } else if(this.state.editMode) {
       return <Redirect to={`/edit/${this.edit}`}/>;
-    } else if (this.props.cats) {
+    } else if (this.props.cars) {
       return (
         <div>
-          {this.props.cats.map(cat => (
-            <Cat 
-              key={cat._id}
-              cat={cat} 
+          {this.props.cars.map(car => (
+            <Car 
+              key={car._id}
+              car={car} 
               user={this.props.user}
-              deleteCat={this.props.deleteCat}
+              deleteCar={this.props.deleteCar}
               edit={this.props.edit}
             />
           ))}
-            <CreateCat createNewCat={this.props.createCat} />
+            <CreateCar createNewCar={this.props.createCar} />
         </div>
       );
     } else {
-      return <div>Loading Cats...</div>;
+      return <div className="loading">Loading Cars...</div>;
     }
   }
 }
@@ -47,15 +47,15 @@ class Home extends Component {
 function mapStateToProps(state) {
   return {
     isLoggedIn: !!state.user,
-    cats: state.cats,
+    cats: state.cars,
     user: state.user
   };
 }
 
 const mapDispatchToProps = {
-  getCats,
-  deleteCat,
-  createCat
+  getCars,
+  deleteCar,
+  createCar
 };
 
 export default connect(

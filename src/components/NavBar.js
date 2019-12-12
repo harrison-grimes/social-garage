@@ -11,8 +11,8 @@ class NavBar extends Component {
     return (
       <nav>
         <Link to="/" className= "nav-button">Feed</Link>
-        <Link to="MyCats" className="nav-button">My Cats</Link>
-        <Link to="NewCat" className="nav-button">New Cat</Link>
+        <Link to="MyCars" className="nav-button">My Cars</Link>
+        <Link to="NewCar" className="nav-button">New Car</Link>
         {this.props.isLoggedIn ? (
           <button className="logout-button" onClick={this.handleLogout}>Logout</button>
         ) : null}

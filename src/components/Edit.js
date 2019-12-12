@@ -1,5 +1,6 @@
 import React from 'react';
-import editCat from '../store/actions';
+import editCar from '../store/actions';
+
 
 export default class Edit extends React.Component {
   state = {
@@ -16,12 +17,12 @@ export default class Edit extends React.Component {
   }
 
   render() {
-      const {editCat} = this.props;
+      const {editCar} = this.props;
       return (
-      <div className = "new-cat-entry">
-        <h3>Add a New Cat</h3>
+      <div className = "new-car-entry">
+        <h3>Add a New Car</h3>
         <label>
-          Cat Name
+          Car Name
           <input type="text" name="name" onChange={this.handleChange}/>
         </label>
         <label>
@@ -45,7 +46,7 @@ export default class Edit extends React.Component {
               bio: this.state.bio
             })
           }>
-            Edit Cat
+            Edit car
           </button>
       </div>
       )}

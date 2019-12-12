@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class CreateCat extends React.Component {
+export default class CreateCar extends React.Component {
   state = {
     name: '',
     url: '',
@@ -15,20 +15,20 @@ export default class CreateCat extends React.Component {
   }
 
   render() {
-      const {createNewCat} = this.props;
+      const {createNewCar} = this.props;
       return (
-      <div className = "new-cat-entry">
-        <h3>Add a New Cat</h3>
+      <div className = "new-car-entry">
+        <h3>Add a New Car</h3>
         <label>
-          Cat Name
+          Car Name
           <input type="text" name="name" onChange={this.handleChange}/>
         </label>
         <label>
-          Cat Image Url
+          Car Image Url
           <input type="text" name="url" onChange={this.handleChange}/>
         </label>
         <label>
-          Cat Bio
+          Car Bio
           <textarea 
             name="bio" 
             id="" 
@@ -38,13 +38,13 @@ export default class CreateCat extends React.Component {
         </label>
         <button
           onClick={() =>
-            createNewCat({
+            createNewCar({
               name: this.state.name,
               url: this.state.url,
               bio: this.state.bio
             })
           }>
-            Create Cat
+            Create Car
           </button>
       </div>
       )}

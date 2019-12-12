@@ -26,46 +26,46 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, isFetching: true };
     case 'AUTH_FAIL':
       return { ...state, isFetching: false, errMsg: 'Invalid Credentials' };
-    case 'FETCHING_CATS':
+    case 'FETCHING_CARS':
       return { ...state, isFetching: true };
-    case 'CREATING_CAT':
+    case 'CREATING_CAR':
       return { ...state, isFetching: true};
-    case 'EDITING_CAT':
+    case 'EDITING_CAR':
       return {...state, isFetching: true};
-    case 'FETCH_CATS_SUCCESS':
+    case 'FETCH_CARS_SUCCESS':
       return {
         ...state,
         isFetching: false,
-        cats: action.cats,
+        cars: action.cars,
         errMsg: undefined
       };
-    case 'DELETE_CAT_SUCCESS':
+    case 'DELETE_CAR_SUCCESS':
       return {
         ...state,
         isFetching: false,
-        cats: state.cats.filter(cat => cat._id !== action.id),
+        cars: state.cars.filter(car => car._id !== action.id),
         errMsg: undefined
       };
-    case 'CREATE_CAT_SUCCESS':
+    case 'CREATE_CAR_SUCCESS':
       return {
         ...state,
         isFetching: false,
-        cats: [...state.cats, action.cat],
+        cars: [...state.cars, action.car],
         errMsg: undefined
       };
-    case 'EDIT_CAT_SUCCES':
+    case 'EDIT_CAR_SUCCES':
       return {
         ...state,
         isFetching: false,
-        cats: state.cats.filter(cat => cat._id !== action.id),
+        cats: state.cars.filter(car => car._id !== action.id),
         errMsg: undefined
       };
-    case 'CREATE_CAT_ERROR':
-      return { ...state, isFetching: false, errMsg: 'Error creating cat' };
+    case 'CREATE_CAR_ERROR':
+      return { ...state, isFetching: false, errMsg: 'Error creating car' };
     case 'FETCH_CATS_ERROR':
-      return { ...state, isFetching: false, errMsg: 'Error getting cats' };
+      return { ...state, isFetching: false, errMsg: 'Error getting cars' };
     case 'EDIT_CAT_ERROR':
-      return { ...state, isFetching: false, errMsg: 'Error editing this cat'};
+      return { ...state, isFetching: false, errMsg: 'Error editing this car'};
     case 'LOGOUT':
       logout();
       return { ...state, user: null };

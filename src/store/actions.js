@@ -1,5 +1,5 @@
 import { signup as signupReq, login as loginReq } from '../services/auth';
-import { getCats as getCatsReq, deleteCat as deleteCatReq, createCat as createCatReq, editCat as editCatReq } from '../services/cats';
+import { getCars as getCarsReq, deleteCar as deleteCarReq, createCar as createCarReq, editCar as editCatReq } from '../services/cars';
 
 export const signup = payload => async dispatch => {
   try {
@@ -44,18 +44,18 @@ export const logout = () => dispatch => {
 export const getCats = () => async dispatch => {
   try {
     dispatch({
-      type: 'FETCHING_CATS'
+      type: 'FETCHING_CARS'
     });
-    const cats = await getCatsReq();
+    const cars = await getCarsReq();
     dispatch({
-      type: 'FETCH_CATS_SUCCESS',
-      cats
+      type: 'FETCH_CARS_SUCCESS',
+      cars
     });
-    return cats;
+    return cars;
   } catch (error) {
     console.error(error);
     dispatch({
-      type: 'FETCH_CATS_ERROR'
+      type: 'FETCH_CARS_ERROR'
     });
     if (error.type === 'Unauthenticated') {
       dispatch({
@@ -68,16 +68,16 @@ export const getCats = () => async dispatch => {
 export const deleteCat = (id) => async dispatch => {
   try {
     dispatch({
-      type: 'FETCHING_CATS'
+      type: 'FETCHING_CARS'
     });
     await deleteCatReq(id);
     dispatch({
-      type: 'DELETE_CAT_SUCCESS',
+      type: 'DELETE_CAR_SUCCESS',
       id
     });
   } catch (error) {
     dispatch({
-      type: 'DELETE_CATS_ERROR'
+      type: 'DELETE_CARS_ERROR'
     });
     if (error.type === 'Unauthenticated') {
       dispatch({
@@ -87,21 +87,21 @@ export const deleteCat = (id) => async dispatch => {
   }
 };
 
-export const createCat = (cat) => async dispatch => {
+export const createCar = (car) => async dispatch => {
   try {
     dispatch({
-      type: 'CREATING_CAT'
+      type: 'CREATING_CAR'
     });
-    const newCat = await createCatReq(cat);
+    const newCar = await createCarReq(car);
     dispatch({
-      type: 'CREATE_CAT_SUCCESS',
-      cat: newCat
+      type: 'CREATE_CAR_SUCCESS',
+      cat: newCar
     });
-    return cat;
+    return car;
   } catch (error) {
     console.error(error);
     dispatch({
-      type: 'CREATE_CATS_ERROR'
+      type: 'CREATE_CARS_ERROR'
     });
     if (error.type === 'Unauthenticated') {
       dispatch({
@@ -111,19 +111,19 @@ export const createCat = (cat) => async dispatch => {
   }
 };
 
-export const editCat = (id) => async dispatch => {
+export const editCar = (id) => async dispatch => {
   try {
     dispatch({
-      type: 'EDITING_CAT'
+      type: 'EDITING_CAR'
     });
     await editCatReq(id);
     dispatch({
-      type: 'EDIT_CAT_SUCCESS',
+      type: 'EDIT_CAR_SUCCESS',
       id
     });
   } catch (error) {
     dispatch({
-      type: 'EDIT_CATS_ERROR'
+      type: 'EDIT_CARS_ERROR'
     });
     if (error.type === 'Unauthenticated') {
       dispatch({
