@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { getCars, deleteCar, createCar } from '../store/actions';
 
-import Car from './Cat';
+import Car from './Car';
 import CreateCar from './NewCar';
 
 class Home extends Component {

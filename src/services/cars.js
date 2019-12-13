@@ -2,7 +2,7 @@ import { handleResponse } from './util';
 
 export async function getCars() {
   try {
-    const url = `https://socialgarage.herokuapp.com/car`;
+    const url = `https://social-garage.herokuapp.com/car`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -20,7 +20,7 @@ export async function getCars() {
 
 export async function deleteCar(id) {
   try {
-    const url = `https://wta-cats.herokuapp.com/cat/${id}`;
+    const url = `https://social-garage.herokuapp.com/car/${id}`;
     const response = await fetch(url, {
       method: 'DELETE',
       headers: {
@@ -37,7 +37,7 @@ export async function deleteCar(id) {
 
 export async function createCar(car) {
   try {
-    const url = `https://socialgarage.herokuapp.com/car`;
+    const url = `https://social-garage.herokuapp.com/car`;
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -54,9 +54,9 @@ export async function createCar(car) {
   }
 }
 
-export async function editCat(car, id) {
+export async function editCar(car, id) {
   try {
-    const url = `https://socialgarage.herokuapp.com/car/${id}`;
+    const url = `https://social-garage.herokuapp.com/car/${id}`;
     const response = await fetch(url, {
       method: 'PUT',
       headers: {
@@ -67,7 +67,7 @@ export async function editCat(car, id) {
       body: JSON.stringify(car)
     });
     console.log(response);
-    const editedCat = await handleResponse(response);
+    const editedCar = await handleResponse(response);
     return editedCar;
   } catch (err) {
     throw err;

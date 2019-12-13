@@ -40,7 +40,7 @@ export default class Edit extends React.Component {
         </label>
         <button
           onClick={() =>
-            editCat({
+            editCar({
               name: this.state.name,
               url: this.state.url,
               bio: this.state.bio

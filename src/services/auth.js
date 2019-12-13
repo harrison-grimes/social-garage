@@ -3,7 +3,7 @@ import { handleResponse } from './util';
 
 async function auth(type, payload) {
   try {
-    const url = `https://wta-cats.herokuapp.com/auth/${type}`;
+    const url = `https://social-garage.herokuapp.com/auth/${type}`;
     const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(payload),

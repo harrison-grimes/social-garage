@@ -1,5 +1,5 @@
 import { signup as signupReq, login as loginReq } from '../services/auth';
-import { getCars as getCarsReq, deleteCar as deleteCarReq, createCar as createCarReq, editCar as editCatReq } from '../services/cars';
+import { getCars as getCarsReq, deleteCar as deleteCarReq, createCar as createCarReq, editCar as editCarReq } from '../services/cars';
 
 export const signup = payload => async dispatch => {
   try {
@@ -41,7 +41,7 @@ export const logout = () => dispatch => {
   });
 };
 
-export const getCats = () => async dispatch => {
+export const getCars = () => async dispatch => {
   try {
     dispatch({
       type: 'FETCHING_CARS'
@@ -65,12 +65,12 @@ export const getCats = () => async dispatch => {
   }
 };
 
-export const deleteCat = (id) => async dispatch => {
+export const deleteCar = (id) => async dispatch => {
   try {
     dispatch({
       type: 'FETCHING_CARS'
     });
-    await deleteCatReq(id);
+    await deleteCarReq(id);
     dispatch({
       type: 'DELETE_CAR_SUCCESS',
       id
@@ -116,7 +116,7 @@ export const editCar = (id) => async dispatch => {
     dispatch({
       type: 'EDITING_CAR'
     });
-    await editCatReq(id);
+    await editCarReq(id);
     dispatch({
       type: 'EDIT_CAR_SUCCESS',
       id
